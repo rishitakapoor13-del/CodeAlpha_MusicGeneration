@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>composer. | AI Music Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div class="logo">composer<span>.</span></div>
+      <span class="badge">CodeAlpha AI Internship &middot; Task 3</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">LSTM neural network</p>
+      <h1>Music, written by a neural network.</h1>
+      <p class="sub">Trained on Bach chorales, it composes a brand new piece every time you press the button.</p>
+    </section>
+
+    <section class="board">
+      <div class="controls">
+        <label>
+          <span class="row"><span>Length</span><output id="lengthOut">96 notes</output></span>
+          <input id="length" type="range" min="32" max="240" step="8" value="96">
+        </label>
+        <label>
+          <span class="row"><span>Creativity</span><output id="tempOut">1.0</output></span>
+          <input id="temperature" type="range" min="0.5" max="1.6" step="0.1" value="1.0">
+          <small>Low = safe and repetitive. High = surprising.</small>
+        </label>
+        <label>
+          <span class="row"><span>Tempo</span><output id="tempoOut">90 BPM</output></span>
+          <input id="tempo" type="range" min="60" max="140" step="5" value="90">
+        </label>
+        <button id="generateBtn" class="go" type="button">Compose music</button>
+      </div>
+
+      <div class="stage">
+        <div class="roll-wrap">
+          <canvas id="roll" aria-label="Piano roll of the generated music"></canvas>
+          <p id="placeholder" class="placeholder">Press "Compose music" to generate a piece.</p>
+        </div>
+        <audio id="player" controls preload="auto"></audio>
+        <div class="downloads">
+          <a id="midiLink" class="link hidden" download>Download MIDI</a>
+          <a id="wavLink" class="link hidden" download>Download WAV</a>
+          <span id="status" class="status"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts" id="facts"></section>
+
+    <footer>Made by Rishita Kapoor &middot; CodeAlpha AI Internship, Task 3</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
